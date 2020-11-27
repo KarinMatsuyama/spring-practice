@@ -1,21 +1,28 @@
 package com.example.springpractice.model;
 
-import java.util.UUID;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
 public class Customer {
-    private final UUID id;
-    private final String name;
-    private final String email;
+    @Id
+    private int id;
+    private String name;
+    private String email;
 
-    public Customer(UUID id, String name, String email) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public UUID getId() {
-        return id;
-    }
+    public int getId() { return id; }
 
     public String getName() {
         return name;

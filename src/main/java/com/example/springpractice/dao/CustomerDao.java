@@ -1,14 +1,7 @@
 package com.example.springpractice.dao;
 
 import com.example.springpractice.model.Customer;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.UUID;
-
-public interface CustomerDao {
-    int insertCustomer(UUID id, Customer customer);
-
-    default int addCustomer(Customer customer) {
-        UUID id = UUID.randomUUID();
-        return insertCustomer(id, customer);
-    }
+public interface CustomerDao extends JpaRepository<Customer,Integer> {
 }
