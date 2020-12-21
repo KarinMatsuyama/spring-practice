@@ -1,9 +1,6 @@
 package com.example.springpractice.model;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +14,7 @@ public class Batch {
     private String processDate;
     private String creditDate;
     @ElementCollection
+    @CollectionTable(uniqueConstraints = @UniqueConstraint(columnNames = {"envelopIds"}))
     private List<String> envelopIds;
 
     public Batch() {}

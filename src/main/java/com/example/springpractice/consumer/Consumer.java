@@ -41,6 +41,7 @@ public class Consumer {
             List<String> envelopeIds = lastExistingBatch.getEnvelopIds();
             envelopeIds.add(envelope.getId());
             lastExistingBatch.setEnvelopIds(envelopeIds);
+            batchDao.save(lastExistingBatch);
         } else {
             Batch lastBatchByCompany = batchDao.findTopByCompany(envelope.getCompany(), Sort.by(Sort.Direction.DESC, "batchNumber"));
 
